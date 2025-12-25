@@ -1,8 +1,6 @@
 <p align="center">
-  <img src="docs/images/buzzhive-logo.svg" alt="Buzzhive" width="200">
+  <img src="docs/images/buzzhive-logo.png" alt="Buzzhive" width="400">
 </p>
-
-<h1 align="center">Buzzhive</h1>
 
 <p align="center">
   <strong>Open-source smart beehive monitoring</strong><br>
