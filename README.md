@@ -1,157 +1,248 @@
-# 🐝 Buzzhive Open
-
-**Open-source beehive health monitoring using AI-powered audio analysis**
-
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![Discord](https://img.shields.io/badge/Discord-Join%20Community-7289da)](https://discord.gg/buzzhive)
-
 <p align="center">
-  <img src="docs/images/buzzhive-system.png" alt="Buzzhive System" width="600">
+  <img src="docs/images/buzzhive-logo.svg" alt="Buzzhive" width="200">
 </p>
 
-## 🎯 What is Buzzhive?
+<h1 align="center">Buzzhive</h1>
 
-Buzzhive is an AI-powered system that monitors beehive health by analyzing the sounds bees make. Using machine learning, it can detect:
+<p align="center">
+  <strong>Open-source smart beehive monitoring</strong><br>
+  Temperature • Humidity • Weight • Audio AI
+</p>
 
-- **Queen Status**: Is the queen present, missing, newly hatched, or being accepted?
-- **Anomalies**: Unusual patterns that might indicate disease, pests, or stress
+<p align="center">
+  <a href="https://buzzhive.io">Website</a> •
+  <a href="https://docs.buzzhive.io">Documentation</a> •
+  <a href="https://discord.gg/buzzhive">Community</a> •
+  <a href="https://buzzhive.io/shop">Shop</a>
+</p>
 
-## ✨ Features
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="License"></a>
+  <a href="https://github.com/mbron64/buzzhive-open/releases"><img src="https://img.shields.io/github/v/release/mbron64/buzzhive-open" alt="Release"></a>
+  <a href="https://discord.gg/buzzhive"><img src="https://img.shields.io/discord/123456789?color=7289da&label=discord" alt="Discord"></a>
+</p>
 
-| Feature | Free (Open Source) | Pro (Cloud) |
-|---------|-------------------|-------------|
-| Queen status detection | ✅ 78.8% accuracy | ✅ 90%+ accuracy |
-| Local inference | ✅ On base station | ✅ Plus cloud |
-| Mobile app | ✅ Basic status | ✅ Full dashboard |
-| Multi-hive support | ✅ 1 hive | ✅ Unlimited |
-| Alerts | ❌ | ✅ Push + Email |
-| Historical data | ❌ | ✅ 1 year |
+<br>
 
-## 🏗️ System Architecture
+<p align="center">
+  <img src="docs/images/hero-device.jpg" alt="Buzzhive sensor on beehive" width="700">
+</p>
+
+---
+
+## Overview
+
+Buzzhive helps beekeepers monitor their hives without constant inspections. Our sensors track temperature, humidity, weight, and even analyze audio to detect queen status — all synced to your phone.
+
+**Why Buzzhive?**
+- 🔓 **Fully open source** — firmware, hardware, everything
+- 💰 **Affordable** — build your own or buy ready-made
+- 🤖 **AI-powered** — audio analysis for queen detection
+- 🔋 **Long battery life** — 12+ months on a single charge
+- 📱 **Easy to use** — simple app, no technical knowledge needed
+
+---
+
+## Products
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="docs/images/product-sense.jpg" width="150"><br>
+      <strong>Buzzhive Sense</strong><br>
+      Temperature, humidity, audio<br>
+      <a href="https://buzzhive.io/products/sense">Learn more →</a>
+    </td>
+    <td align="center" width="33%">
+      <img src="docs/images/product-scale.jpg" width="150"><br>
+      <strong>Buzzhive Scale</strong><br>
+      Weight monitoring<br>
+      <a href="https://buzzhive.io/products/scale">Learn more →</a>
+    </td>
+    <td align="center" width="33%">
+      <img src="docs/images/product-complete.jpg" width="150"><br>
+      <strong>Buzzhive Complete</strong><br>
+      Everything in one<br>
+      <a href="https://buzzhive.io/products/complete">Learn more →</a>
+    </td>
+  </tr>
+</table>
+
+Or [build your own](#build-your-own) using our open-source designs.
+
+---
+
+## How It Works
 
 ```
-┌─────────────────┐      LoRa       ┌─────────────────┐      WiFi      ┌─────────────┐
-│  Hive Sensor    │ ──────────────► │  Base Station   │ ─────────────► │  Dashboard  │
-│  (ESP32 + Mic)  │   Audio data    │  (ESP32 + ML)   │   Results      │  (App/Web)  │
-└─────────────────┘                 └─────────────────┘                └─────────────┘
-     Battery                             Wall power                      Your phone
-     6+ months                           XGBoost AI                      
+┌──────────────────┐          ┌──────────────────┐          ┌──────────────────┐
+│                  │          │                  │          │                  │
+│   Hive Sensor    │  ─────►  │    Your Phone    │  ─────►  │      Cloud       │
+│                  │   BLE    │                  │   WiFi   │    (optional)    │
+│  • Temperature   │          │  • View data     │          │  • History       │
+│  • Humidity      │          │  • Get alerts    │          │  • Multi-hive    │
+│  • Weight        │          │  • Log notes     │          │  • Sharing       │
+│  • Audio         │          │                  │          │                  │
+│                  │          │                  │          │                  │
+└──────────────────┘          └──────────────────┘          └──────────────────┘
+      In the hive                Weekly sync                   Optional
 ```
 
-## 🚀 Quick Start
+1. **Install** the sensor inside your hive
+2. **Sync** data via Bluetooth when you visit
+3. **Monitor** temperature, humidity, weight, and queen status
+4. **Get alerts** when something needs attention
 
-### Option 1: Buy a Kit (Recommended)
-Visit [buzzhive.io](https://buzzhive.io) to get a pre-assembled kit with everything you need.
+---
+
+## Features
+
+| Feature | Description |
+|---------|-------------|
+| 🌡️ **Temperature** | Track brood nest temperature (±0.5°C accuracy) |
+| 💧 **Humidity** | Monitor moisture levels to prevent mold |
+| ⚖️ **Weight** | See nectar flow and detect swarms instantly |
+| 🎤 **Audio AI** | Analyze bee sounds to detect queen status |
+| 📱 **Mobile App** | iOS and Android with simple, clean interface |
+| 🔋 **Long Battery** | 12+ months on a single coin cell |
+| 📡 **Flexible Connectivity** | Bluetooth, LoRa, or LTE options |
+| 🔓 **Open Source** | Full access to firmware, hardware, and models |
+
+---
+
+## Quick Start
+
+### Option 1: Buy a Kit
+
+Get a pre-assembled, tested kit from our shop:
+
+→ **[buzzhive.io/shop](https://buzzhive.io/shop)**
 
 ### Option 2: Build Your Own
 
-#### Hardware Required
-- 2x ESP32-S3 DevKit
-- 1x I2S MEMS Microphone (INMP441 or SPH0645)
-- 2x LoRa Module (SX1276/SX1278)
-- 1x Temperature/Humidity Sensor (SHT31)
-- 1x LiPo Battery (10,000 mAh recommended)
-- Custom PCB ([order from PCBWay](hardware/pcb/README.md))
+Everything you need is in this repository.
 
-#### Software Setup
+#### Requirements
 
-1. **Clone this repo**
+- ESP32-S3 development board
+- I2S microphone (INMP441)
+- Temperature/humidity sensor (SHT31)
+- Load cells + HX711 (for weight)
+- Battery + enclosure
+
+#### Installation
+
 ```bash
-git clone https://github.com/buzzhive/buzzhive-open.git
+# Clone the repository
+git clone https://github.com/mbron64/buzzhive-open.git
 cd buzzhive-open
-```
 
-2. **Flash the hive sensor**
-```bash
+# Flash the sensor firmware
 cd firmware/esp32-hive-sensor
 pio run --target upload
+
+# Done! Pair with the mobile app to start monitoring.
 ```
 
-3. **Flash the base station**
-```bash
-cd ../esp32-base-station
-pio run --target upload
-```
+See the [Build Guide](docs/build-guide.md) for detailed instructions.
 
-4. **Install the mobile app**
-- iOS: [App Store](https://apps.apple.com/app/buzzhive)
-- Android: [Play Store](https://play.google.com/store/apps/details?id=io.buzzhive)
+---
 
-## 📊 How the AI Works
+## Mobile App
 
-We use a **XGBoost classifier** trained on thousands of hours of beehive audio:
+<p align="center">
+  <img src="docs/images/app-screenshots.png" alt="Buzzhive app" width="600">
+</p>
 
-1. **Record** 10 seconds of audio every 30 minutes
-2. **Extract** MFCC features (78 total)
-3. **Classify** queen status using ML model
-4. **Transmit** result over LoRa (just ~50 bytes)
+- **iOS**: [Download on App Store](https://apps.apple.com/app/buzzhive)
+- **Android**: [Download on Google Play](https://play.google.com/store/apps/details?id=io.buzzhive)
+- **Source**: [mobile-app/](mobile-app/) (React Native)
 
-```python
-# Simplified inference pipeline
-audio = record_audio(duration=10)        # 10 seconds
-mfcc = extract_mfcc_features(audio)      # 78 features
-status = xgboost_predict(mfcc)           # 0-3 class
-send_lora(hive_id, status, temp, humid)  # Transmit
-```
+---
 
-## 📁 Repository Structure
+## Documentation
+
+| Guide | Description |
+|-------|-------------|
+| [Getting Started](docs/getting-started.md) | First-time setup |
+| [Build Guide](docs/build-guide.md) | DIY hardware assembly |
+| [Firmware Guide](docs/firmware-guide.md) | Flashing and configuration |
+| [API Reference](docs/api-reference.md) | For developers |
+| [FAQ](docs/faq.md) | Common questions |
+
+---
+
+## Repository Structure
 
 ```
 buzzhive-open/
 ├── firmware/
-│   ├── esp32-hive-sensor/    # Hive sensor code
-│   └── esp32-base-station/   # Base station with ML
+│   ├── esp32-hive-sensor/     # Sensor firmware
+│   └── esp32-base-station/    # Base station firmware (optional)
 ├── hardware/
-│   ├── pcb/                  # PCB design files
-│   └── enclosure/            # 3D printable cases
-├── models/                   # ML model files
-├── mobile-app/              # React Native app
-├── docs/                    # Documentation
-└── examples/                # Example projects
+│   ├── pcb/                   # KiCad PCB designs
+│   └── enclosure/             # 3D printable cases
+├── models/                    # Pre-trained ML models
+├── mobile-app/               # React Native source
+└── docs/                     # Documentation
 ```
 
-## 🔬 Training Your Own Model
+---
 
-Want to improve the model or train for your specific bee species?
+## AI & Machine Learning
 
-```bash
-cd examples/custom-model
-pip install -r requirements.txt
-python train.py --data your_audio_folder/
-```
+Buzzhive uses on-device machine learning to analyze bee sounds and detect queen status.
 
-See [Training Guide](docs/training-guide.md) for details.
+| Model | Accuracy | Size | Description |
+|-------|----------|------|-------------|
+| XGBoost | 78.8% | 50KB | Queen status classification |
+| VAE | — | 1.8MB | Anomaly detection (experimental) |
 
-## 🤝 Contributing
+The model runs entirely on the device — your audio never leaves the hive.
 
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+**Want to improve the model?** See [Training Guide](docs/training-guide.md) to contribute labeled data or train custom models.
 
-### Areas We Need Help
+---
+
+## Contributing
+
+We welcome contributions of all kinds:
+
+- 🐛 Bug reports and fixes
+- ✨ New features
+- 📖 Documentation improvements
 - 🌍 Translations
-- 📱 Mobile app improvements
 - 🧪 Testing with different bee species
-- 📝 Documentation
-- 🐛 Bug fixes
 
-## 📜 License
+See [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
 
-This project is licensed under the Apache 2.0 License - see [LICENSE](LICENSE) for details.
+---
 
-## 🙏 Acknowledgments
+## Community
 
-- Research based on [Chen et al. 2024](https://doi.org/10.1016/j.eswa.2024.124898)
-- Audio dataset from [Open Source Beehives Project](https://opensourcebeehives.com)
-- Community contributors
+- **Discord**: [Join our community](https://discord.gg/buzzhive) for help and discussion
+- **GitHub Discussions**: [Ask questions](https://github.com/mbron64/buzzhive-open/discussions)
+- **Twitter**: [@buzzhive_io](https://twitter.com/buzzhive_io)
 
-## 📞 Support
+---
 
-- 💬 [Discord Community](https://discord.gg/buzzhive)
-- 📧 support@buzzhive.io
-- 🐛 [GitHub Issues](https://github.com/buzzhive/buzzhive-open/issues)
+## License
+
+This project is licensed under the [Apache License 2.0](LICENSE).
+
+You are free to use, modify, and distribute this software. Attribution is appreciated but not required.
+
+---
+
+## Acknowledgments
+
+- Audio analysis research based on [Chen et al. 2024](https://doi.org/10.1016/j.eswa.2024.124898)
+- Thanks to all our [contributors](https://github.com/mbron64/buzzhive-open/graphs/contributors)
+- Built with ❤️ for the beekeeping community
 
 ---
 
 <p align="center">
-  Made with 🐝 by the Buzzhive team
+  <a href="https://buzzhive.io">buzzhive.io</a> · 
+  <a href="mailto:hello@buzzhive.io">hello@buzzhive.io</a>
 </p>
-
