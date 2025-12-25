@@ -13,7 +13,7 @@ This guide will walk you through setting up your Buzzhive beehive monitoring sys
 | INMP441 I2S Microphone | 1 | Digital MEMS mic |
 | SX1276 LoRa Module | 2 | One for each ESP32 |
 | SHT31 Temp/Humidity Sensor | 1 | Optional but recommended |
-| LiPo Battery | 1 | 10,000 mAh recommended |
+| LiPo Battery | 1 | 7200 mAh thin profile (fits inside hive) |
 | TP4056 Charging Module | 1 | For battery charging |
 | Antenna (915MHz or 868MHz) | 2 | Match your region |
 
@@ -158,11 +158,11 @@ GND     ────────  GND
 
 ### Battery Life Estimates
 
-| Mode | Interval | Battery Life (10,000 mAh) |
-|------|----------|---------------------------|
-| Active | 15 min | ~3 months |
-| Winter | 2 hours | ~8 months |
-| Adaptive | Auto | ~6 months average |
+| Mode | Interval | Battery Life (7200 mAh) |
+|------|----------|-------------------------|
+| Active | 15 min | ~2.5 months |
+| Winter | 2 hours | ~6 months |
+| Adaptive | Auto | ~12 months average |
 
 ### Tips for Longer Battery Life
 

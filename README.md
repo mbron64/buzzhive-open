@@ -102,7 +102,7 @@ Or [build your own](#build-your-own) using our open-source designs.
 | ⚖️ **Weight** | See nectar flow and detect swarms instantly |
 | 🎤 **Audio AI** | Analyze bee sounds to detect queen status |
 | 📱 **Mobile App** | iOS and Android with simple, clean interface |
-| 🔋 **Long Battery** | 12+ months on a single coin cell |
+| 🔋 **Long Battery** | 12+ months on 7200mAh LiPo |
 | 📡 **Flexible Connectivity** | Bluetooth, LoRa, or LTE options |
 | 🔓 **Open Source** | Full access to firmware, hardware, and models |
 
