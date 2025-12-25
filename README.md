@@ -97,13 +97,13 @@ Or [build your own](#build-your-own) using our open-source designs.
 
 | Feature | Description |
 |---------|-------------|
-| 🌡️ **Temperature** | Track brood nest temperature (±0.5°C accuracy) |
+| 🌡️ **Temperature** | Track brood nest temperature (±1°C accuracy) |
 | 💧 **Humidity** | Monitor moisture levels to prevent mold |
-| ⚖️ **Weight** | See nectar flow and detect swarms instantly |
+| 🌬️ **Air Quality** | VOC gas sensing for hive health (BME680) |
 | 🎤 **Audio AI** | Analyze bee sounds to detect queen status |
 | 📱 **Mobile App** | iOS and Android with simple, clean interface |
-| 🔋 **Long Battery** | 12+ months on 7200mAh LiPo |
-| 📡 **Flexible Connectivity** | Bluetooth, LoRa, or LTE options |
+| 🔋 **Long Battery** | 12+ months on 7200mAh thin LiPo |
+| 📡 **LoRa Connectivity** | Long-range wireless (built-in on Heltec ESP32) |
 | 🔓 **Open Source** | Full access to firmware, hardware, and models |
 
 ---
@@ -120,13 +120,19 @@ Get a pre-assembled, tested kit from our shop:
 
 Everything you need is in this repository.
 
-#### Requirements
+#### Hardware
 
-- ESP32-S3 development board
-- I2S microphone (INMP441)
-- Temperature/humidity sensor (SHT31)
-- Load cells + HX711 (for weight)
-- Battery + enclosure
+| Component | Part | ~Cost |
+|-----------|------|-------|
+| Microcontroller | Heltec LoRa Kit 32 V3 (ESP32 + LoRa) | $18 |
+| Environmental Sensor | BME680 (temp, humidity, VOC) | $5 |
+| Microphone | INMP441 I2S MEMS | $3 |
+| Battery | 7200mAh thin LiPo | $22 |
+| Enclosure | 3D printed PETG | $5 |
+| PCB + misc | Custom PCB, switch, connectors | $8 |
+| **Total** | | **~$61** |
+
+Full BOM and PCB files available in [hardware/](hardware/).
 
 #### Installation
 
