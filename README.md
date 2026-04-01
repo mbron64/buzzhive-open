@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/images/buzzhive-logo.png" alt="Buzzhive" width="400">
+  <img src="docs/images/buzzhive-logo.png" alt="BuzzHive" width="400">
 </p>
 
 <p align="center">
@@ -8,69 +8,43 @@
 </p>
 
 <p align="center">
-  <a href="https://buzzhive.io">Website</a> •
-  <a href="https://docs.buzzhive.io">Documentation</a> •
-  <a href="https://discord.gg/buzzhive">Community</a> •
-  <a href="https://buzzhive.io/shop">Shop</a>
+  <a href="https://buzzhivetech.com">Website</a> •
+  <a href="https://github.com/mbron64/buzzhive-open/discussions">Community</a>
 </p>
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="License"></a>
   <a href="https://github.com/mbron64/buzzhive-open/releases"><img src="https://img.shields.io/github/v/release/mbron64/buzzhive-open" alt="Release"></a>
-  <a href="https://discord.gg/buzzhive"><img src="https://img.shields.io/discord/123456789?color=7289da&label=discord" alt="Discord"></a>
 </p>
 
 <br>
 
 <p align="center">
-  <img src="docs/images/hero-device.jpg" alt="Buzzhive sensor on beehive" width="700">
+  <img src="docs/images/hero-device.jpg" alt="BuzzHive sensor on beehive" width="700">
 </p>
 
 ---
 
 ## Overview
 
-Buzzhive helps beekeepers monitor their hives without constant inspections. Our sensors track temperature, humidity, weight, and even analyze audio to detect queen status — all synced to your phone.
+BuzzHive helps beekeepers monitor their hives without constant inspections. Our sensors track temperature, humidity, weight, and analyze audio to detect queen status — all synced to your phone.
 
-**Why Buzzhive?**
+**Why BuzzHive?**
 - 🔓 **Fully open source** — firmware, hardware, everything
-- 💰 **Affordable** — build your own or buy ready-made
-- 🤖 **AI-powered** — audio analysis for queen detection
+- 💰 **Affordable** — build your own from ~$45 (Bluetooth) or ~$80 (LoRa)
+- 🤖 **AI-powered** — on-device audio analysis for queen detection
 - 🔋 **Long battery life** — 12+ months on a single charge
-- 📱 **Easy to use** — simple app, no technical knowledge needed
+- 📡 **Flexible connectivity** — Bluetooth for hobbyists, LoRa for larger operations
 
----
-
-## Products
-
-<table>
-  <tr>
-    <td align="center" width="33%">
-      <img src="docs/images/product-sense.jpg" width="150"><br>
-      <strong>Buzzhive Sense</strong><br>
-      Temperature, humidity, audio<br>
-      <a href="https://buzzhive.io/products/sense">Learn more →</a>
-    </td>
-    <td align="center" width="33%">
-      <img src="docs/images/product-scale.jpg" width="150"><br>
-      <strong>Buzzhive Scale</strong><br>
-      Weight monitoring<br>
-      <a href="https://buzzhive.io/products/scale">Learn more →</a>
-    </td>
-    <td align="center" width="33%">
-      <img src="docs/images/product-complete.jpg" width="150"><br>
-      <strong>Buzzhive Complete</strong><br>
-      Everything in one<br>
-      <a href="https://buzzhive.io/products/complete">Learn more →</a>
-    </td>
-  </tr>
-</table>
-
-Or [build your own](#build-your-own) using our open-source designs.
+> **Note:** BuzzHive is currently in pre-launch. [Join the waitlist](https://buzzhivetech.com/#joinwaitlist) to get notified when commercial hardware becomes available, or build your own using this open-source project.
 
 ---
 
 ## How It Works
+
+BuzzHive supports two connectivity options depending on your setup:
+
+### Option A: Bluetooth (Direct to Phone)
 
 ```
 ┌──────────────────┐          ┌──────────────────┐          ┌──────────────────┐
@@ -78,17 +52,37 @@ Or [build your own](#build-your-own) using our open-source designs.
 │   Hive Sensor    │  ─────►  │    Your Phone    │  ─────►  │      Cloud       │
 │                  │   BLE    │                  │   WiFi   │    (optional)    │
 │  • Temperature   │          │  • View data     │          │  • History       │
-│  • Humidity      │          │  • Get alerts    │          │  • Multi-hive    │
-│  • Weight        │          │  • Log notes     │          │  • Sharing       │
-│  • Audio         │          │                  │          │                  │
+│  • Humidity      │          │  • ML inference  │          │  • Multi-hive    │
+│  • Audio         │          │  • Get alerts    │          │  • Sharing       │
 │                  │          │                  │          │                  │
 └──────────────────┘          └──────────────────┘          └──────────────────┘
-      In the hive                Weekly sync                   Optional
+      In the hive                Sync when visiting              Optional
 ```
 
+Best for: Hobbyist beekeepers with fewer hives who visit regularly.
+
+### Option B: LoRa (Base Station)
+
+```
+┌──────────────────┐          ┌──────────────────┐          ┌──────────────────┐
+│                  │          │                  │          │                  │
+│   Hive Sensor    │  ─────►  │   Base Station   │  ─────►  │      Cloud       │
+│                  │   LoRa   │                  │   WiFi   │    (optional)    │
+│  • Temperature   │          │  • ML inference  │          │  • History       │
+│  • Humidity      │          │  • Queen status  │          │  • Multi-hive    │
+│  • Audio         │          │  • Alerts        │          │  • Sharing       │
+│                  │          │                  │          │                  │
+└──────────────────┘          └──────────────────┘          └──────────────────┘
+      In the hive               At your home/apiary            Optional
+```
+
+Best for: Larger operations or remote apiaries where you want continuous monitoring without visiting.
+
+### Getting Started
+
 1. **Install** the sensor inside your hive
-2. **Sync** data via Bluetooth when you visit
-3. **Monitor** temperature, humidity, weight, and queen status
+2. **Connect** via Bluetooth or LoRa depending on your setup
+3. **Analyze** with on-device ML for queen status detection
 4. **Get alerts** when something needs attention
 
 ---
@@ -101,66 +95,61 @@ Or [build your own](#build-your-own) using our open-source designs.
 | 💧 **Humidity** | Monitor moisture levels to prevent mold |
 | 🌬️ **Air Quality** | VOC gas sensing for hive health (BME680) |
 | 🎤 **Audio AI** | Analyze bee sounds to detect queen status |
-| 📱 **Mobile App** | iOS and Android with simple, clean interface |
 | 🔋 **Long Battery** | 12+ months on 7200mAh thin LiPo |
-| 📡 **LoRa Connectivity** | Long-range wireless (built-in on Heltec ESP32) |
+| 📡 **Flexible Connectivity** | Bluetooth (direct to phone) or LoRa (base station) |
 | 🔓 **Open Source** | Full access to firmware, hardware, and models |
 
 ---
 
-## Quick Start
+## Build Your Own
 
-### Option 1: Buy a Kit
+Everything you need to build your own BuzzHive sensor is in this repository.
 
-Get a pre-assembled, tested kit from our shop:
+### Hardware Options
 
-→ **[buzzhive.io/shop](https://buzzhive.io/shop)**
-
-### Option 2: Build Your Own
-
-Everything you need is in this repository.
-
-#### Hardware
+#### Bluetooth Version (~$45)
 
 | Component | Part | ~Cost |
 |-----------|------|-------|
-| Microcontroller | Heltec LoRa Kit 32 V3 (ESP32 + LoRa) | $18 |
+| Microcontroller | ESP32-S3 DevKit (has BLE + PSRAM) | $10 |
 | Environmental Sensor | BME680 (temp, humidity, VOC) | $5 |
 | Microphone | INMP441 I2S MEMS | $3 |
 | Battery | 7200mAh thin LiPo | $22 |
-| Enclosure | 3D printed PETG | $5 |
-| PCB + misc | Custom PCB, switch, connectors | $8 |
-| **Total** | | **~$61** |
+| Enclosure + misc | 3D printed PETG, switch, connectors | $5 |
+| **Total** | | **~$45** |
+
+#### LoRa Version (~$80)
+
+| Component | Part | ~Cost |
+|-----------|------|-------|
+| Hive Sensor | Heltec LoRa Kit 32 V3 (ESP32 + LoRa) | $18 |
+| Base Station | ESP32 DevKit + SX1276 LoRa module | $15 |
+| Environmental Sensor | BME680 (temp, humidity, VOC) | $5 |
+| Microphone | INMP441 I2S MEMS | $3 |
+| Battery | 7200mAh thin LiPo | $22 |
+| Enclosure + misc | 3D printed PETG, switch, connectors | $8 |
+| Antennas (x2) | 915MHz or 868MHz for your region | $9 |
+| **Total** | | **~$80** |
 
 Full BOM and PCB files available in [hardware/](hardware/).
 
-#### Installation
+### Installation
 
 ```bash
 # Clone the repository
 git clone https://github.com/mbron64/buzzhive-open.git
 cd buzzhive-open
 
-# Flash the sensor firmware
+# Flash the hive sensor firmware
 cd firmware/esp32-hive-sensor
 pio run --target upload
 
-# Done! Pair with the mobile app to start monitoring.
+# (LoRa only) Flash the base station firmware
+cd ../esp32-base-station
+pio run --target upload
 ```
 
-See the [Build Guide](docs/build-guide.md) for detailed instructions.
-
----
-
-## Mobile App
-
-<p align="center">
-  <img src="docs/images/app-screenshots.png" alt="Buzzhive app" width="600">
-</p>
-
-- **iOS**: [Download on App Store](https://apps.apple.com/app/buzzhive)
-- **Android**: [Download on Google Play](https://play.google.com/store/apps/details?id=io.buzzhive)
-- **Source**: [mobile-app/](mobile-app/) (React Native)
+See the [Getting Started Guide](docs/getting-started.md) for detailed instructions.
 
 ---
 
@@ -181,21 +170,20 @@ See the [Build Guide](docs/build-guide.md) for detailed instructions.
 ```
 buzzhive-open/
 ├── firmware/
-│   ├── esp32-hive-sensor/     # Sensor firmware
-│   └── esp32-base-station/    # Base station firmware (optional)
+│   ├── esp32-hive-sensor/     # Hive sensor firmware (BLE + LoRa)
+│   └── esp32-base-station/    # Base station firmware (LoRa only)
 ├── hardware/
 │   ├── pcb/                   # KiCad PCB designs
 │   └── enclosure/             # 3D printable cases
 ├── models/                    # Pre-trained ML models
-├── mobile-app/               # React Native source
-└── docs/                     # Documentation
+└── docs/                      # Documentation
 ```
 
 ---
 
 ## AI & Machine Learning
 
-Buzzhive uses on-device machine learning to analyze bee sounds and detect queen status.
+BuzzHive uses on-device machine learning to analyze bee sounds and detect queen status.
 
 | Model | Accuracy | Size | Description |
 |-------|----------|------|-------------|
@@ -224,9 +212,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
 
 ## Community
 
-- **Discord**: [Join our community](https://discord.gg/buzzhive) for help and discussion
 - **GitHub Discussions**: [Ask questions](https://github.com/mbron64/buzzhive-open/discussions)
-- **Twitter**: [@buzzhive_io](https://twitter.com/buzzhive_io)
+- **Website**: [buzzhivetech.com](https://buzzhivetech.com)
 
 ---
 
@@ -247,6 +234,5 @@ You are free to use, modify, and distribute this software. Attribution is apprec
 ---
 
 <p align="center">
-  <a href="https://buzzhive.io">buzzhive.io</a> · 
-  <a href="mailto:hello@buzzhive.io">hello@buzzhive.io</a>
+  <a href="https://buzzhivetech.com">buzzhivetech.com</a>
 </p>
