@@ -80,7 +80,7 @@ prediction = model.predict(dmatrix)
 
 ## Training Your Own Model
 
-See the [training notebooks](../examples/custom-model/) for how to train with your own data.
+See [RESEARCH.md](../RESEARCH.md) for detailed information on the training procedure, dataset, and how to reproduce or improve the model.
 
 ### Requirements
 
@@ -90,13 +90,9 @@ See the [training notebooks](../examples/custom-model/) for how to train with yo
 - xgboost
 - pandas, numpy
 
-### Quick Training
+### Dataset
 
-```bash
-cd examples/custom-model
-pip install -r requirements.txt
-python train.py --data /path/to/your/audio/
-```
+The model was trained on the [Kaggle Smart Bee Colony Monitor dataset](https://www.kaggle.com/datasets/annajyang/smart-bee-colony-monitor) (7,100 audio samples).
 
 ## Model Architecture
 

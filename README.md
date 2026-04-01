@@ -162,6 +162,7 @@ See the [Getting Started Guide](docs/getting-started.md) for detailed instructio
 | [Firmware Guide](docs/firmware-guide.md) | Flashing and configuration |
 | [API Reference](docs/api-reference.md) | For developers |
 | [FAQ](docs/faq.md) | Common questions |
+| [**Research & ML**](RESEARCH.md) | Model details, training data, improvement opportunities |
 
 ---
 
