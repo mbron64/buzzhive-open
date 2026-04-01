@@ -379,10 +379,10 @@ When reporting results, include:
 
 ### Primary Research
 
-1. **Chen et al. (2024)** - "Audio-based bee colony health monitoring using deep learning"
+1. **Chen et al. (2024)** - "A machine learning-based multiclass classification model for bee colony anomaly identification using an IoT-based audio monitoring system with an edge computing framework"
    - DOI: https://doi.org/10.1016/j.eswa.2024.124898
    - Achieved 98.8% accuracy with controlled experimental data
-   - Used CNN on mel spectrograms
+   - Expert Systems with Applications journal
 
 ### Dataset
 
