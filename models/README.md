@@ -8,7 +8,7 @@ This directory contains the pre-trained machine learning models for bee colony s
 
 | File | Description | Size |
 |------|-------------|------|
-| `xgboost_queen_detector.json` | Full XGBoost model (800 trees) | ~4.2 MB |
+| `xgboost_queen_detector.json` | Full XGBoost model (200 trees) | ~4.2 MB |
 | `buzzhive_ml.h` | C header with scaler parameters | ~2.4 KB |
 | `scaler_params.json` | Feature normalization parameters | ~3.8 KB |
 
@@ -21,14 +21,14 @@ This directory contains the pre-trained machine learning models for bee colony s
 | Classes | 4 (Queenright, Queenless, Queen_Hatched, Queen_Accepted) |
 | Input Features | 78 (MFCC mean/std + deltas) |
 
-### Class Distribution
+### Class Distribution (Train + Val)
 
-| Class | Name | Training Samples |
-|-------|------|------------------|
-| 0 | Queenright | 725 |
-| 1 | Queenless | 661 |
-| 2 | Queen_Hatched | 1,088 |
-| 3 | Queen_Accepted | 2,493 |
+| Class | Name | Samples |
+|-------|------|---------|
+| 0 | Queenright | 829 |
+| 1 | Queenless | 756 |
+| 2 | Queen_New | 1,243 |
+| 3 | Queen_Accepted | 2,850 |
 
 ## Usage
 
@@ -92,7 +92,7 @@ See [RESEARCH.md](../RESEARCH.md) for detailed information on the training proce
 
 ### Dataset
 
-The model was trained on the [Kaggle Smart Bee Colony Monitor dataset](https://www.kaggle.com/datasets/annajyang/smart-bee-colony-monitor) (7,100 audio samples).
+The model was trained on the [Kaggle Smart Bee Colony Monitor dataset](https://www.kaggle.com/datasets/annajyang/beehive-sounds) (7,100 audio samples).
 
 ## Model Architecture
 
@@ -132,7 +132,7 @@ Audio (10 sec @ 22050 Hz)
          ▼
 ┌─────────────────┐
 │ XGBoost         │
-│ (800 trees)     │
+│ (200 trees)     │
 └─────────────────┘
          │
          ▼

@@ -34,11 +34,10 @@ Audio analysis enables non-invasive, continuous monitoring.
 
 | Metric | Value |
 |--------|-------|
-| Model | XGBoost (800 trees) |
+| Model | XGBoost (200 trees) |
 | Accuracy | 78.8% |
 | F1 Score | 0.787 |
 | Model Size | ~4.2 MB (JSON) |
-| Inference Time | <100ms on ESP32 |
 
 ---
 
@@ -77,7 +76,7 @@ Audio analysis enables non-invasive, continuous monitoring.
 |-------|-------|-------------|
 | 0 | Queenright | Healthy hive, queen present and laying |
 | 1 | Queenless | Queen lost, dead, or absent |
-| 2 | Queen_Hatched | Virgin queen recently emerged |
+| 2 | Queen_New | Newly introduced/virgin queen |
 | 3 | Queen_Accepted | New queen accepted by colony |
 
 ### Performance Metrics
@@ -95,10 +94,10 @@ Audio analysis enables non-invasive, continuous monitoring.
 
 | Class | Precision | Recall | F1 | Support |
 |-------|-----------|--------|-----|---------|
-| Queenright | 0.76 | 0.74 | 0.75 | 145 |
-| Queenless | 0.71 | 0.68 | 0.69 | 132 |
-| Queen_Hatched | 0.78 | 0.82 | 0.80 | 218 |
-| Queen_Accepted | 0.85 | 0.86 | 0.85 | 499 |
+| Queenright | 0.73 | 0.78 | 0.75 | 209 |
+| Queenless | 0.63 | 0.64 | 0.64 | 190 |
+| Queen_New | 0.78 | 0.69 | 0.73 | 310 |
+| Queen_Accepted | 0.85 | 0.88 | 0.86 | 713 |
 
 **Note**: Class imbalance affects performance. Queen_Accepted has the most samples and highest accuracy.
 
@@ -124,23 +123,22 @@ Audio analysis enables non-invasive, continuous monitoring.
 
 **Kaggle Smart Bee Colony Monitor Dataset**
 
-- **URL**: https://www.kaggle.com/datasets/annajyang/smart-bee-colony-monitor
+- **URL**: https://www.kaggle.com/datasets/annajyang/beehive-sounds
 - **Total Samples**: 7,100 audio recordings
 - **Format**: WAV files, 22,050 Hz sample rate
 - **Duration**: 10 seconds per clip
 - **Labels**: Queen status (4 classes)
 
-### Class Distribution
+### Class Distribution (Train + Validation Set)
 
-| Class | Name | Samples | Percentage |
-|-------|------|---------|------------|
-| 0 | Queenright | 725 | 10.2% |
-| 1 | Queenless | 661 | 9.3% |
-| 2 | Queen_Hatched | 1,088 | 15.3% |
-| 3 | Queen_Accepted | 2,493 | 35.1% |
-| — | Other/Unlabeled | 2,133 | 30.0% |
+| Class | Name | Samples |
+|-------|------|---------|
+| 0 | Queenright | 829 |
+| 1 | Queenless | 756 |
+| 2 | Queen_New | 1,243 |
+| 3 | Queen_Accepted | 2,850 |
 
-**Note**: Only labeled samples (4,967) were used for supervised learning.
+Test set contains 1,422 samples (stratified split).
 
 ### Data Split
 
@@ -198,7 +196,7 @@ Audio (10 sec @ 22,050 Hz)
          │
          ▼
 ┌─────────────────────┐
-│ 6. XGBoost          │  800 trees, max_depth=6
+│ 6. XGBoost          │  200 trees, max_depth=6
 │    Classifier       │
 └─────────────────────┘
          │
@@ -210,13 +208,9 @@ Audio (10 sec @ 22,050 Hz)
 
 ```python
 xgb.XGBClassifier(
-    n_estimators=800,
+    n_estimators=200,
     max_depth=6,
     learning_rate=0.1,
-    subsample=0.8,
-    colsample_bytree=0.8,
-    objective='multi:softmax',
-    num_class=4,
     random_state=42,
     n_jobs=-1
 )
@@ -295,10 +289,10 @@ The XGBoost model (4.2 MB JSON) is too large for ESP32 flash. Current solution:
 
 | Approach | Size | Accuracy | Status |
 |----------|------|----------|--------|
-| Full XGBoost (800 trees) | 4.2 MB | 78.8% | Too large |
-| Top-100 trees | ~500 KB | ~70% | Fits in flash |
-| Quantized (int8) | ~1 MB | TBD | Not implemented |
-| m2cgen C export | ~2 MB | 78.8% | Code size issue |
+| Full XGBoost (200 trees) | 4.2 MB | 78.8% | Too large for ESP32 |
+| Reduced trees | TBD | TBD | Not yet tested |
+| Quantized (int8) | TBD | TBD | Not implemented |
+| m2cgen C export | TBD | TBD | Not yet tested |
 
 ---
 

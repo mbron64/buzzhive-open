@@ -188,8 +188,8 @@ BuzzHive uses on-device machine learning to analyze bee sounds and detect queen 
 
 | Model | Accuracy | Size | Description |
 |-------|----------|------|-------------|
-| XGBoost | 78.8% | 50KB | Queen status classification |
-| VAE | — | 1.8MB | Anomaly detection (experimental) |
+| XGBoost | 78.8% | ~4.2 MB | Queen status classification |
+| VAE | — | ~1.8 MB | Anomaly detection (experimental) |
 
 The model runs entirely on the device — your audio never leaves the hive.
 
