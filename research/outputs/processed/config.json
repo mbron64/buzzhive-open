@@ -1,0 +1,18 @@
+{
+  "sample_rate": 22050,
+  "duration": 10.0,
+  "n_mels": 128,
+  "n_fft": 2048,
+  "hop_length": 512,
+  "fmin": 20,
+  "fmax": 8000,
+  "n_mfcc": 13,
+  "pre_emphasis": 0.97,
+  "class_names": {
+    "0": "Queenright",
+    "1": "Queenless",
+    "2": "Queen_New",
+    "3": "Queen_Accepted"
+  },
+  "num_classes": 4
+}
